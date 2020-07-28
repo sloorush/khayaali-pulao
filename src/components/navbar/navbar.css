@@ -1,0 +1,11 @@
+#components-layout-demo-top-side .logo {
+    width: 120px;
+    height: 31px;
+    background: #112123;
+    margin: 16px 28px 16px 0;
+    float: left;
+}
+
+.site-layout-background {
+    background: #112123;
+}
