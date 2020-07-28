@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
+    HomeOutlined,
+    SendOutlined,
     UploadOutlined,
 } from "@ant-design/icons";
 import Home from "./pages/home/home";
@@ -13,7 +13,13 @@ import Home from "./pages/home/home";
 const { Header, Sider, Content } = Layout;
 
 const App = () => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
+
+    const history = useHistory();
+
+    const onHomeClick = () => {
+        history.push("/");
+    };
 
     return (
         <>
@@ -31,14 +37,18 @@ const App = () => {
                         defaultSelectedKeys={["1"]}
                         style={{ background: "#113536" }}
                     >
-                        <Menu.Item key="1" icon={<UserOutlined />}>
-                            nav 1
+                        <Menu.Item
+                            key="1"
+                            onClick={onHomeClick}
+                            icon={<HomeOutlined />}
+                        >
+                            Home
                         </Menu.Item>
-                        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                            nav 2
+                        <Menu.Item key="2" icon={<SendOutlined />}>
+                            Post
                         </Menu.Item>
                         <Menu.Item key="3" icon={<UploadOutlined />}>
-                            nav 3
+                            Login
                         </Menu.Item>
                     </Menu>
                 </Sider>
