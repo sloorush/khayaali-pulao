@@ -28,14 +28,14 @@ const App = () => {
                     trigger={null}
                     collapsible
                     collapsed={collapsed}
-                    style={{ background: "#113536" }}
+                    style={{ background: "#202025" }}
                 >
                     <div className="logo">Khayaali Pulao</div>
                     <Menu
                         theme="dark"
                         mode="inline"
                         defaultSelectedKeys={["1"]}
-                        style={{ background: "#113536" }}
+                        style={{ background: "#202025" }}
                     >
                         <Menu.Item
                             key="1"
@@ -77,12 +77,11 @@ const App = () => {
                         className="site-layout-background"
                         style={{
                             padding: 24,
-                            minHeight: "280px",
                         }}
                     >
                         <Switch>
                             <Route path="/" component={Home} />
-                        </Switch>{" "}
+                        </Switch>
                     </Content>
                 </Layout>
             </Layout>

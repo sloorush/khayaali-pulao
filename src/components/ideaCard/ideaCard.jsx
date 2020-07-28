@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card } from "antd";
+import "./ideaCard.css";
 
 const { Meta } = Card;
 
@@ -9,12 +10,12 @@ const IdeaCard = ({ title, description, tags = ["hehe"] }) => {
     return (
         <>
             <Card
-                style={{ maxWidth: 500, marginTop: 16 }}
+                style={{ maxWidth: 500, marginTop: 16, color: "#ffffff" }}
                 loading={loading}
                 bodyStyle={{
-                    backgroundColor: "#13a8a8",
+                    backgroundColor: "#202025",
                     border: "none",
-                    color: "#000",
+                    color: "#fff",
                     cursor: "progress",
                 }}
                 onClick={() => setLoading(!loading)}

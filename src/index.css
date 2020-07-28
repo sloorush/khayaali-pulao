@@ -5,14 +5,15 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: #fff;
 }
 
 .logo {
-    background: rgba(255, 255, 255, 0.2);
+    color: #63b275;
     margin: 16px;
 }
 .trigger:hover {
-    color: #84e2d8;
+    color: #63b275;
 }
 
 .trigger {
@@ -24,6 +25,6 @@ body {
 }
 
 .site-layout .site-layout-background {
-    background: #144848;
+    background: #16171b;
     color: #fff;
 }
