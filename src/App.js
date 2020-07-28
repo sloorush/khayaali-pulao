@@ -10,6 +10,7 @@ import {
     QuestionOutlined,
 } from "@ant-design/icons";
 import Home from "./pages/home/home";
+import About from "./pages/about/about";
 
 const { Header, Sider, Content } = Layout;
 const { Search } = Input;
@@ -21,6 +22,10 @@ const App = () => {
 
     const onHomeClick = () => {
         history.push("/");
+    };
+
+    const onAboutClick = () => {
+        history.push("/about");
     };
 
     return (
@@ -53,7 +58,11 @@ const App = () => {
                             Khayaali Pulao Menu
                         </Menu.Item>
                         <Divider />
-                        <Menu.Item key="4" icon={<QuestionOutlined />}>
+                        <Menu.Item
+                            key="4"
+                            onClick={onAboutClick}
+                            icon={<QuestionOutlined />}
+                        >
                             Wait! What?
                         </Menu.Item>
                     </Menu>
@@ -101,7 +110,8 @@ const App = () => {
                         }}
                     >
                         <Switch>
-                            <Route path="/" component={Home} />
+                            <Route path="/" exact component={Home} />
+                            <Route path="/about" component={About} />
                         </Switch>
                     </Content>
                 </Layout>
