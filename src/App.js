@@ -18,12 +18,18 @@ const App = () => {
     return (
         <>
             <Layout style={{ minHeight: "100vh" }}>
-                <Sider trigger={null} collapsible collapsed={collapsed}>
-                    <div className="logo" />
+                <Sider
+                    trigger={null}
+                    collapsible
+                    collapsed={collapsed}
+                    style={{ background: "#113536" }}
+                >
+                    <div className="logo">Khayaali Pulao</div>
                     <Menu
                         theme="dark"
                         mode="inline"
                         defaultSelectedKeys={["1"]}
+                        style={{ background: "#113536" }}
                     >
                         <Menu.Item key="1" icon={<UserOutlined />}>
                             nav 1
@@ -42,21 +48,24 @@ const App = () => {
                         style={{ padding: 0 }}
                     >
                         {collapsed ? (
-                            <MenuUnfoldOutlined
-                                className="trigger"
-                                onClick={() => setCollapsed(!collapsed)}
-                            />
+                            <div>
+                                <MenuUnfoldOutlined
+                                    className="trigger"
+                                    onClick={() => setCollapsed(!collapsed)}
+                                />
+                            </div>
                         ) : (
-                            <MenuFoldOutlined
-                                className="trigger"
-                                onClick={() => setCollapsed(!collapsed)}
-                            />
+                            <div>
+                                <MenuFoldOutlined
+                                    className="trigger"
+                                    onClick={() => setCollapsed(!collapsed)}
+                                />
+                            </div>
                         )}
                     </Header>
                     <Content
                         className="site-layout-background"
                         style={{
-                            margin: "24px 16px",
                             padding: 24,
                             minHeight: "280px",
                         }}

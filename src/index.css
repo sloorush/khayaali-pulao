@@ -6,3 +6,24 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.logo {
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+.trigger:hover {
+    color: #1890ff;
+}
+
+.trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.site-layout .site-layout-background {
+    background: #144848;
+    color: #fff;
+}
