@@ -13,7 +13,7 @@ body {
     margin: 16px;
 }
 .trigger:hover {
-    color: #63b275;
+    color: #fff;
 }
 
 .trigger {
@@ -22,6 +22,7 @@ body {
     padding: 0 24px;
     cursor: pointer;
     transition: color 0.3s;
+    color: #cccccc;
 }
 
 .site-layout .site-layout-background {

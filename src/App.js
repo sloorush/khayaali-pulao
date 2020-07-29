@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { Layout, Menu, Typography, Input, Divider } from "antd";
 import {
@@ -18,6 +18,13 @@ const { Search } = Input;
 const App = () => {
     const [collapsed, setCollapsed] = useState(true);
 
+    useEffect(() => {
+        const width = window.innerWidth;
+        if (width > 530) {
+            setCollapsed(false);
+        }
+    }, []);
+
     const history = useHistory();
 
     const onHomeClick = () => {
@@ -26,6 +33,23 @@ const App = () => {
 
     const onAboutClick = () => {
         history.push("/about");
+    };
+
+    const randomColor = () => {
+        const colors = [
+            "#FBD71E",
+            "#E3451F",
+            "#70BAFE",
+            "#ff866e",
+            "#F7C61B",
+            "#63B275",
+            "#2876CA",
+            "#784BC1",
+            "#E4669A",
+            "#F1AD45",
+            "#77DCC6",
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
     };
 
     return (
@@ -37,7 +61,23 @@ const App = () => {
                     collapsed={collapsed}
                     style={{ background: "#202025" }}
                 >
-                    <Typography className="logo">Khayaali Pulao</Typography>
+                    {collapsed ? (
+                        <Typography.Title
+                            level={2}
+                            style={{ color: randomColor() }}
+                            className="logo"
+                        >
+                            KP
+                        </Typography.Title>
+                    ) : (
+                        <Typography.Title
+                            style={{ color: randomColor() }}
+                            className="logo"
+                        >
+                            Khayaali Pulao
+                        </Typography.Title>
+                    )}
+
                     <Menu
                         theme="dark"
                         mode="inline"
