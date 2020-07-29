@@ -11,6 +11,7 @@ import {
 } from "@ant-design/icons";
 import Home from "./pages/home/home";
 import About from "./pages/about/about";
+import logoColored from "./images/biryani-color.svg";
 
 const { Header, Sider, Content } = Layout;
 const { Search } = Input;
@@ -38,13 +39,11 @@ const App = () => {
     const randomColor = () => {
         const colors = [
             "#FBD71E",
-            "#E3451F",
             "#70BAFE",
             "#ff866e",
             "#F7C61B",
             "#63B275",
             "#2876CA",
-            "#784BC1",
             "#E4669A",
             "#F1AD45",
             "#77DCC6",
@@ -66,14 +65,25 @@ const App = () => {
                             level={2}
                             style={{ color: randomColor() }}
                             className="logo"
+                            onClick={onHomeClick}
                         >
-                            KP
+                            <img
+                                className="logo-img"
+                                alt={logoColored}
+                                src={logoColored}
+                            />
                         </Typography.Title>
                     ) : (
                         <Typography.Title
                             style={{ color: randomColor() }}
                             className="logo"
+                            onClick={onHomeClick}
                         >
+                            <img
+                                className="logo-img"
+                                alt={logoColored}
+                                src={logoColored}
+                            />
                             Khayaali Pulao
                         </Typography.Title>
                     )}

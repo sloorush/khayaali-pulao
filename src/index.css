@@ -9,8 +9,9 @@ body {
 }
 
 .logo {
-    color: #63b275;
     margin: 16px;
+    display: flex;
+    flex-direction: column;
 }
 .trigger:hover {
     color: #fff;
@@ -28,4 +29,8 @@ body {
 .site-layout .site-layout-background {
     background: #16171b;
     color: #fff;
+}
+
+.logo-img {
+    height: 3rem;
 }
