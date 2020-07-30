@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: "Permanent Marker", cursive;
-    letter-spacing: 0.55px;
+    letter-spacing: 0.5px;
 }
 .trigger:hover {
     color: #fff;
