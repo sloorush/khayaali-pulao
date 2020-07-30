@@ -1,7 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import { Layout, Typography, Form, Input, Button } from "antd";
+import { Layout, Typography, Form, Input, Button, Select } from "antd";
 import randomColor from "../../utils/randomColor";
 
 import "./post.css";
@@ -22,6 +22,7 @@ const Post = () => {
     const onFinish = (values) => {
         console.log(values);
     };
+
     return (
         <Layout className="post-body" style={{ background: "inherit" }}>
             <Typography.Title style={{ color: randomColor() }}>
@@ -53,6 +54,22 @@ const Post = () => {
                     <Input.TextArea
                         autoSize
                         placeholder="Khayaal, khayaal, khayaal. You can add your name or email or phone number here if you want it visible to all. This is the only box that will be visible. :) #YourKhayaalYourChoice"
+                    />
+                </Form.Item>
+                <Form.Item
+                    name={["postAKhayaal", "tags"]}
+                    label="Tag your Khayaal"
+                    rules={[
+                        {
+                            required: true,
+                            type: "array",
+                        },
+                    ]}
+                >
+                    <Select
+                        mode="tags"
+                        placeholder="Add no more or less than 5 tags, 5 is for your khayaal to not be lost."
+                        tokenSeparators={[","]}
                     />
                 </Form.Item>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
