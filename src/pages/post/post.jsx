@@ -2,7 +2,7 @@ import React from "react";
 import { Layout, Typography } from "antd";
 import randomColor from "../../utils/randomColor";
 
-const About = () => {
+const Post = () => {
     return (
         <Layout style={{ background: "inherit" }}>
             <Typography.Title style={{ color: randomColor() }}>
@@ -12,4 +12,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default Post;

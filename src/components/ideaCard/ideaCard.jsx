@@ -1,26 +1,16 @@
 import React, { useState } from "react";
 import { Card } from "antd";
 import "./ideaCard.css";
+import randomColor from "../../utils/randomColor";
 
 const { Meta } = Card;
 
-const IdeaCard = ({ title, description, tags = ["hehe"] }) => {
+const IdeaCard = ({
+    title = "khayaal Loading",
+    description = "I think they forgot to describe their khayaal :3",
+    tags = ["hehe"],
+}) => {
     const [loading, setLoading] = useState(false);
-
-    const randomColor = () => {
-        const colors = [
-            "#FBD71E",
-            "#70BAFE",
-            "#ff866e",
-            "#F7C61B",
-            "#63B275",
-            "#2876CA",
-            "#E4669A",
-            "#F1AD45",
-            "#77DCC6",
-        ];
-        return colors[Math.floor(Math.random() * colors.length)];
-    };
 
     return (
         <>

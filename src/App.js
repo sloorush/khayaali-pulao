@@ -12,6 +12,8 @@ import {
 import Home from "./pages/home/home";
 import About from "./pages/about/about";
 import logoColored from "./images/biryani-color.svg";
+import Post from "./pages/post/post";
+import randomColor from "./utils/randomColor";
 
 const { Header, Sider, Content } = Layout;
 const { Search } = Input;
@@ -21,7 +23,7 @@ const App = () => {
 
     useEffect(() => {
         const width = window.innerWidth;
-        if (width > 530) {
+        if (width > 790) {
             setCollapsed(false);
         }
     }, []);
@@ -36,19 +38,8 @@ const App = () => {
         history.push("/about");
     };
 
-    const randomColor = () => {
-        const colors = [
-            "#FBD71E",
-            "#70BAFE",
-            "#ff866e",
-            "#F7C61B",
-            "#63B275",
-            "#2876CA",
-            "#E4669A",
-            "#F1AD45",
-            "#77DCC6",
-        ];
-        return colors[Math.floor(Math.random() * colors.length)];
+    const onPostClick = () => {
+        history.push("/post");
     };
 
     return (
@@ -58,7 +49,9 @@ const App = () => {
                     trigger={null}
                     collapsible
                     collapsed={collapsed}
-                    style={{ background: "#202025" }}
+                    style={{
+                        background: "#202025",
+                    }}
                 >
                     {collapsed ? (
                         <Typography.Title
@@ -101,7 +94,11 @@ const App = () => {
                         >
                             Khayaali Pulao Today
                         </Menu.Item>
-                        <Menu.Item key="2" icon={<SendOutlined />}>
+                        <Menu.Item
+                            key="2"
+                            icon={<SendOutlined />}
+                            onClick={onPostClick}
+                        >
                             Post a Khayaal
                         </Menu.Item>
                         <Menu.Item key="3" icon={<TagsOutlined />}>
@@ -143,7 +140,7 @@ const App = () => {
                             </div>
                         )}
                         <Search
-                            placeholder="input search text"
+                            placeholder="See a Khayaal?"
                             onSearch={(value) => console.log(value)}
                             enterButton
                             style={{
@@ -161,6 +158,7 @@ const App = () => {
                     >
                         <Switch>
                             <Route path="/" exact component={Home} />
+                            <Route path="/post" component={Post} />
                             <Route path="/about" component={About} />
                         </Switch>
                     </Content>
