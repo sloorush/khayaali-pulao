@@ -1,0 +1,10 @@
+.post-body {
+    background: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ant-form-item-label > label {
+    color: #ffffff;
+}
