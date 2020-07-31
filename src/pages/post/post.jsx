@@ -20,7 +20,28 @@ const validateMessages = {
 
 const Post = () => {
     const onFinish = (values) => {
-        console.log(values);
+        // const requestOptions = {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         Accept: "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         name: "aarush",
+        //         email: "aarush@gmail.com",
+        //         khayaal: "want to live in a boat for a month",
+        //         tags: ["boat", "dream", "travel"],
+        //         title: "boat boat boat",
+        //     }),
+        // };
+        // fetch(
+        //     "https://glacial-waters-08199.herokuapp.com/khayaal/addKhayaal",
+        //     requestOptions
+        // )
+        //     .then((response) => response.json())
+        //     .then((data) => console.log(data))
+        //     .catch((err) => console.log(err));
+        console.log(values.postAKhayaal);
     };
 
     return (
@@ -45,7 +66,13 @@ const Post = () => {
                 >
                     <Input placeholder="It won't be visible to audience, just to let you know, when you khayaal is loved by people." />
                 </Form.Item>
-
+                <Form.Item
+                    name={["postAKhayaal", "title"]}
+                    label="Title of the Khayaal"
+                    rules={[{ required: true }]}
+                >
+                    <Input placeholder="First Impression :3" />
+                </Form.Item>
                 <Form.Item
                     name={["postAKhayaal", "khayaal"]}
                     label="Khayaal"
@@ -53,7 +80,7 @@ const Post = () => {
                 >
                     <Input.TextArea
                         autoSize
-                        placeholder="Khayaal, khayaal, khayaal. You can add your name or email or phone number here if you want it visible to all. This is the only box that will be visible. :) #YourKhayaalYourChoice"
+                        placeholder="Khayaal, khayaal, khayaal. You can probably add your name or email or phone number here if you want it visible to all. This is the only box that will be visible. :) #YourKhayaalYourChoice"
                     />
                 </Form.Item>
                 <Form.Item

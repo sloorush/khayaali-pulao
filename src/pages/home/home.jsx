@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Layout } from "antd";
 import IdeaCard from "../../components/ideaCard/ideaCard";
 import "./home.css";
 
 const Home = () => {
+    useEffect(() => {
+        // fetch("https://glacial-waters-08199.herokuapp.com/khayaal/all")
+        //     .then((response) => response.json())
+        //     .then((data) => console.log(data));
+    }, []);
     return (
         <Layout
             style={{ background: "inherit", margin: "2rem 0 0 0" }}
