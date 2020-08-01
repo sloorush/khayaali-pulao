@@ -20,27 +20,19 @@ const validateMessages = {
 
 const Post = () => {
     const onFinish = (values) => {
-        // const requestOptions = {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         Accept: "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         name: "aarush",
-        //         email: "aarush@gmail.com",
-        //         khayaal: "want to live in a boat for a month",
-        //         tags: ["boat", "dream", "travel"],
-        //         title: "boat boat boat",
-        //     }),
-        // };
-        // fetch(
-        //     "https://glacial-waters-08199.herokuapp.com/khayaal/addKhayaal",
-        //     requestOptions
-        // )
-        //     .then((response) => response.json())
-        //     .then((data) => console.log(data))
-        //     .catch((err) => console.log(err));
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            responseType: "json",
+            body: JSON.stringify(values.postAKhayaal),
+        };
+        fetch("http://localhost:3001/khayaal/addKhayaal", requestOptions)
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
         console.log(values.postAKhayaal);
     };
 
