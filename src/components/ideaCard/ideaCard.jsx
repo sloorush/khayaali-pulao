@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "antd";
 import "./ideaCard.css";
 import randomColor from "../../utils/randomColor";
 
 const { Meta } = Card;
 
-const IdeaCard = ({
-    title = "khayaal Loading",
-    description = "I think they forgot to describe their khayaal :3",
-    tags = ["hehe"],
-}) => {
-    const [loading, setLoading] = useState(false);
+const IdeaCard = ({ id }) => {
+    const [loading, setLoading] = useState(true);
+    const [cardData, setCardData] = useState({
+        title: "khayaal Loading",
+        khayaal: "I think they forgot to describe their khayaal :3",
+        tags: ["3am", "khayaal"],
+    });
 
+    useEffect(() => {
+        fetch(`https://glacial-waters-08199.herokuapp.com/khayaal/${id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setCardData(data.data);
+                setLoading(false);
+            });
+    }, []);
     return (
         <>
             <Card
@@ -34,13 +43,13 @@ const IdeaCard = ({
                 <Meta
                     avatar={
                         <p>
-                            {tags.map((tag) => (
+                            {cardData.tags.map((tag) => (
                                 <div>#{tag}</div>
                             ))}
                         </p>
                     }
-                    title={title}
-                    description={description}
+                    title={cardData.title}
+                    description={cardData.khayaal}
                 />
             </Card>
         </>

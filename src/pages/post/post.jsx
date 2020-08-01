@@ -29,7 +29,10 @@ const Post = () => {
             responseType: "json",
             body: JSON.stringify(values.postAKhayaal),
         };
-        fetch("http://localhost:3001/khayaal/addKhayaal", requestOptions)
+        fetch(
+            "https://glacial-waters-08199.herokuapp.com//khayaal/addKhayaal",
+            requestOptions
+        )
             .then((response) => response.json())
             .then((data) => console.log(data))
             .catch((err) => console.log(err));
