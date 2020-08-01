@@ -20,7 +20,7 @@ const IdeaCard = ({ id }) => {
                 setCardData(data.data);
                 setLoading(false);
             });
-    }, []);
+    }, [id]);
     return (
         <>
             <Card
