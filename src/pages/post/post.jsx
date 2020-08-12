@@ -1,7 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from "react";
-import { Layout, Typography, Form, Input, Button, Select } from "antd";
+import React, { useState } from "react";
+import { Layout, Typography, Form, Input, Button, Select, Alert } from "antd";
 import randomColor from "../../utils/randomColor";
 
 import "./post.css";
@@ -19,6 +19,9 @@ const validateMessages = {
 };
 
 const Post = () => {
+    const [err, setErr] = useState();
+    const [success, setSuccess] = useState();
+
     const onFinish = (values) => {
         const requestOptions = {
             method: "POST",
@@ -34,8 +37,8 @@ const Post = () => {
             requestOptions
         )
             .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((err) => console.log(err));
+            .then((data) => setSuccess(data))
+            .catch((error) => setErr(error));
         console.log(values.postAKhayaal);
     };
 
@@ -103,7 +106,18 @@ const Post = () => {
                         Submit
                     </Button>
                 </Form.Item>
-                {/* <Alert message="Error Text" type="error" /> */}
+                {err ? (
+                    <Alert
+                        message="Sorry! Your khayaal didn't react us."
+                        type="error"
+                    />
+                ) : null}
+                {success ? (
+                    <Alert
+                        message="Your Khayaal has been posted!"
+                        type="success"
+                    />
+                ) : null}
             </Form>
         </Layout>
     );
