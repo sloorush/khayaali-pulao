@@ -21,8 +21,10 @@ const validateMessages = {
 const Post = () => {
     const [err, setErr] = useState();
     const [success, setSuccess] = useState();
+    const [loading, setLoading] = useState(false);
 
     const onFinish = (values) => {
+        setLoading(true);
         const requestOptions = {
             method: "POST",
             headers: {
@@ -38,7 +40,8 @@ const Post = () => {
         )
             .then((response) => response.json())
             .then((data) => setSuccess(data))
-            .catch((error) => setErr(error));
+            .then(() => setLoading(false))
+            .catch((error) => setErr(error) && setLoading(false));
         console.log(values.postAKhayaal);
     };
 
@@ -102,6 +105,7 @@ const Post = () => {
                         type="primary"
                         style={{ background: randomColor(), color: "#000000" }}
                         htmlType="submit"
+                        loading={loading}
                     >
                         Submit
                     </Button>
@@ -110,12 +114,15 @@ const Post = () => {
                     <Alert
                         message="Sorry! Your khayaal didn't react us."
                         type="error"
+                        showIcon
+                        closable
                     />
                 ) : null}
                 {success ? (
                     <Alert
                         message="Your Khayaal has been posted!"
                         type="success"
+                        showIcon
                     />
                 ) : null}
             </Form>
