@@ -30,7 +30,7 @@ const Post = () => {
             body: JSON.stringify(values.postAKhayaal),
         };
         fetch(
-            "https://glacial-waters-08199.herokuapp.com//khayaal/addKhayaal",
+            "https://glacial-waters-08199.herokuapp.com/khayaal/addKhayaal",
             requestOptions
         )
             .then((response) => response.json())
@@ -103,6 +103,7 @@ const Post = () => {
                         Submit
                     </Button>
                 </Form.Item>
+                {/* <Alert message="Error Text" type="error" /> */}
             </Form>
         </Layout>
     );
