@@ -9,7 +9,6 @@ I wish it was called Biryani.
 ### Contribution instructions
 
 -   Husky, Prettier and EsLint are configured for the best practicies
--   Never push to master
 -   Use only yarn and not npm
 
 ## Available Scripts
