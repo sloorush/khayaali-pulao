@@ -5,6 +5,7 @@ import { Layout, Typography, Form, Input, Button, Select, Alert } from "antd";
 import randomColor from "../../utils/randomColor";
 
 import "./post.css";
+// import { useHistory } from "react-router-dom";
 
 const layout = {
     labelCol: { span: 8 },
@@ -22,6 +23,7 @@ const Post = () => {
     const [err, setErr] = useState();
     const [success, setSuccess] = useState();
     const [loading, setLoading] = useState(false);
+    // const history = useHistory();
 
     const onFinish = (values) => {
         setLoading(true);
@@ -41,6 +43,7 @@ const Post = () => {
             .then((response) => response.json())
             .then((data) => setSuccess(data))
             .then(() => setLoading(false))
+            // .then(() => history.push("/"))
             .catch((error) => setErr(error) && setLoading(false));
         console.log(values.postAKhayaal);
     };
@@ -103,7 +106,10 @@ const Post = () => {
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
                     <Button
                         type="primary"
-                        style={{ background: randomColor(), color: "#000000" }}
+                        style={{
+                            background: randomColor(),
+                            color: "#000000",
+                        }}
                         htmlType="submit"
                         loading={loading}
                     >

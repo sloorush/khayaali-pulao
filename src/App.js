@@ -9,6 +9,7 @@ import {
     TagsOutlined,
     QuestionOutlined,
 } from "@ant-design/icons";
+import ReactGA from "react-ga";
 import Home from "./pages/home/home";
 import About from "./pages/about/about";
 import logoColored from "./images/biryani-color.svg";
@@ -20,6 +21,11 @@ const { Search } = Input;
 
 const App = () => {
     const [collapsed, setCollapsed] = useState(true);
+
+    useEffect(() => {
+        ReactGA.initialize("UA-175675614-1");
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
 
     useEffect(() => {
         const width = window.innerWidth;
