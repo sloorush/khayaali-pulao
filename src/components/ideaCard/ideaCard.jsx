@@ -49,7 +49,7 @@ const IdeaCard = ({ id }) => {
                         </p>
                     }
                     title={cardData.title}
-                    description={cardData.khayaal}
+                    description={cardData.khayaal.substr(0,50)}
                 />
             </Card>
         </>
