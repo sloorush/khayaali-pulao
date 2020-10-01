@@ -3,5 +3,8 @@
 }
 
 .ant-card-meta-title {
-    /* color: #63b275; */
+    color: #63b275;
+    text-overflow: clip;
+    white-space: pre-line;
+    overflow: hidden;
 }
