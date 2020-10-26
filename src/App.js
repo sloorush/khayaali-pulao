@@ -57,6 +57,9 @@ const App = () => {
                     collapsed={collapsed}
                     style={{
                         background: "#202025",
+                        overflow: "auto",
+                        height: "100vh",
+                        position: "fixed",
                     }}
                 >
                     {collapsed ? (
@@ -120,7 +123,10 @@ const App = () => {
                         </Menu.Item>
                     </Menu>
                 </Sider>
-                <Layout className="site-layout">
+                <Layout
+                    className="site-layout"
+                    style={collapsed ? { marginLeft: 80 } : { marginLeft: 200 }}
+                >
                     <Header
                         className="site-layout-background"
                         style={{
